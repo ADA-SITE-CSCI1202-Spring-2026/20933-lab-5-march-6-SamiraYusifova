@@ -1,0 +1,77 @@
+interface movable{
+    void moveup();
+    void movedown();
+    void moveleft();
+    void moveright();
+}
+class point implements movable{
+    int x,y;
+    public point(int x,int y){
+        this.x=x;
+        this.y=y;
+    }
+    public void moveup(){
+        y++;
+    }
+    public void movedown(){
+        y--;
+    }
+    public void moveleft(){
+        x--;
+    }
+    public void moveright(){
+        x++;
+    }
+}
+class circle implements movable{
+    point center; 
+    int radius;
+    public circle(int x,int y,int r){
+        this.center = new point(x,y);
+        this.radius = r;
+    }
+    public void moveup(){
+        center.moveup();
+    }
+    public void movedown(){
+        center.movedown();
+    }
+    public void moveleft(){
+        center.moveleft();
+    }
+    public void moveright(){
+        center.moveright();
+    } 
+    public void moveright(){
+        center.moveright();
+    }
+    public String tostring(){
+        return "Circle with center at (" + center.x + "," + center.y + ") and radius " + radius;
+    }
+}
+class Main{
+    public static void main(String[] args){
+        point p = new point(0,0);
+        System.out.println("Start:       " + p);
+        p.moveUp();
+        System.out.println("after move up:     " + p);
+        p.moveRight();
+        System.out.println("after move right:  " + p);
+        p.movedown();
+        System.out.println("After moveDown:  " + p);
+        p.moveLeft();
+        System.out.println("After moveLeft:  " + p);
+
+        System.out.println();
+        Circle c = new Circle(0, 0, 5);
+        System.out.println("Start:       " + c);
+        c.moveUp();
+        System.out.println("After moveUp:    " + c);
+        c.moveRight();
+        System.out.println("After moveRight: " + c);
+        c.moveDown();
+        System.out.println("After moveDown:  " + c);
+        c.moveLeft();
+        System.out.println("After moveLeft:  " + c);
+    }
+}
